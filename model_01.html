@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/underscore-min.js"></script>
+        <script src="js/backbone-min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/json2.js"></script>
+    </head>
+    <body>
+        <div>Please check the console for demo of working with this simple Model</div>
+    <script>
+        Movie = Backbone.Model.extend();
+        
+        firstMovie = new Movie({
+            name: 'Prometheus'
+        });
+        
+        console.log("______________________________________________________________________________________________________________________________");
+        console.log("First Movie: firstMovie");
+        console.log(firstMovie);
+        console.log("______________________________________________________________________________________________________________________________");
+        console.log("First Movie in JSON: firstMovie.toJSON()");
+        console.log(firstMovie.toJSON());
+        console.log("______________________________________________________________________________________________________________________________");
+        console.log("First Movie name: firstMovie.get('name')");
+        console.log(firstMovie.get("name"));
+        console.log("______________________________________________________________________________________________________________________________");
+        console.log("First Movie adding year property: firstMovie.set('year','2012')");
+        console.log(firstMovie.set("year","2012"));
+        console.log("______________________________________________________________________________________________________________________________");
+        console.log("First Movie in JSON: firstMovie.toJSON()");
+        console.log(firstMovie.toJSON());
+        console.log("______________________________________________________________________________________________________________________________");
+        console.log("First Movie year ");
+        console.log(firstMovie.get("year"));
+        console.log("______________________________________________________________________________________________________________________________");
+    </script>
+    </body>
+</html>
