@@ -10,25 +10,26 @@
     </head>
     <body>
         <div>Please check the console for demo of working with this simple Model</div>
+		
     <script>
-        Movie = Backbone.Model.extend();
+	
+		// Added a default, and a method for the model
+        Movie = Backbone.Model.extend({
+			defaults: {
+				"name": "Blade Runner"
+			},
+			
+			updateName: function(newName) {this.set("name",newName);}
+		});
         
-        movie = new Movie({
-            name: 'Prometheus'
-        });
+        movie = new Movie();
         
-        console.log("movie");
-        console.log(movie);
         console.log("movie.toJSON()");
         console.log(movie.toJSON());
-        console.log("movie.get('name')");
-        console.log(movie.get("name"));
-        console.log("movie.set('year','2012')");
-        console.log(movie.set("year","2012"));
-        console.log("movie.toJSON()");
-        console.log(movie.toJSON());
-        console.log("movie.get('year')");
-        console.log(movie.get("year"));
+        console.log("firstMovie.updateName('Space Odyssey')");
+        movie.updateName("Space Odyssey");
+		console.log("firstMovie.get('name')");
+		console.log(movie.get("name"));
     </script>
     </body>
 </html>

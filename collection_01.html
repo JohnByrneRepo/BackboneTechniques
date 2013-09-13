@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/underscore-min.js"></script>
+        <script src="js/backbone-min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/json2.js"></script>
+    </head>
+    <body>
+        <div>Please check the console for demo of working with this simple Collection</div>
+    <script>
+        Movie = Backbone.Model.extend();
+        
+        Movies = Backbone.Collection.extend({
+			Model: Movie,
+			url: '#'
+		});
+		
+		movies = new Movies([
+			{name: "Star Wars"},
+			{name: "Robocop"}
+		]);
+        
+        console.log("Movies to JSON:");
+        console.log(movies.toJSON());       
+    </script>
+    </body>
+</html>
