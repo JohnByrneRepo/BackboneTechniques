@@ -22,8 +22,20 @@
 			{name: "Star Wars"},
 			{name: "Robocop"}
 		]);
+		
+		// Looping through collections to populate list
+		movies.each(function(model) {
+			console.log("Model name: " + model.get("name"));
+		});
+		
+		// Adding method onto collection
+		movies.on("add", function(model) {
+			console.log("Movie added to collection");
+		});
         
-        console.log("Movies to JSON:");
+        console.log("movies.add({'name' : 'Total Recall')");
+		movies.add({"name" : "Total Recall"});
+        console.log("movies.toJSON()");       
         console.log(movies.toJSON());       
     </script>
     </body>
