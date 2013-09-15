@@ -3,40 +3,40 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="js/underscore-min.js"></script>
-        <script src="js/backbone-min.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/json2.js"></script>
+		<script src="js/underscore-min.js"></script>
+        <script src="js/backbone-min.js"></script>
     </head>
     <body>
         <div>Please check the console for demo of working with this simple Collection</div>
-    <script>
-        Movie = Backbone.Model.extend();
-        
-        Movies = Backbone.Collection.extend({
-			model: Movie,
-			url: '#'
-		});
-		
-		movies = new Movies([
-			{name: "Star Wars"},
-			{name: "Robocop"}
-		]);
-		
-		// Looping through collections to populate list
-		movies.each(function(model) {
-			console.log("Model name: " + model.get("name"));
-		});
-		
-		// Adding method onto collection
-		movies.on("add", function(model) {
-			console.log("Movie added to collection");
-		});
-        
-        console.log("movies.add({'name' : 'Total Recall')");
-		movies.add({"name" : "Total Recall"});
-        console.log("movies.toJSON()");       
-        console.log(movies.toJSON());       
-    </script>
+		<script>
+			Movie = Backbone.Model.extend();
+			
+			Movies = Backbone.Collection.extend({
+				model: Movie,
+				url: '#'
+			});
+			
+			movies = new Movies([
+				{name: "Star Wars"},
+				{name: "Robocop"}
+			]);
+			
+			// Looping through collections to populate list
+			movies.each(function(model) {
+				console.log("Model name: " + model.get("name"));
+			});
+			
+			// Adding method onto collection
+			movies.on("add", function(model) {
+				console.log("Movie added to collection");
+			});
+			
+			console.log("movies.add({'name' : 'Total Recall')");
+			console.log(movies.add({"name" : "Total Recall"}));
+			console.log("movies.toJSON()");       
+			console.log(movies.toJSON());       
+		</script>
     </body>
 </html>

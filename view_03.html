@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/underscore-min.js"></script>
+        <script src="js/backbone-min.js"></script>
+    </head>
+    <body>
+        <div>Please check the console for demo of working with this simple View</div>
+		<script>
+		
+			IndexView = Backbone.View.extend({
+			
+				el:	'body',
+			
+				initialize:	function() {
+					this.render();
+				},
+				
+				render: function() {
+				
+					this.$el.empty();		
+					this.$el.append("<h1>Movie App Index View</h1>");
+					
+					this.listView = new ListView();
+					this.$el.append(this.listView.render().el);
+					
+					return this;
+					
+				}
+			
+			});
+			
+			ListView = Backbone.View.extend({
+			
+				tagName: 'ul',
+				
+				initialize: function() {
+
+				},
+			
+				render: function() {
+					
+					this.$el.empty();
+					this.$el.append("<li>Unnamed Movie 1</li>");
+					this.$el.append("<li>Unnamed Movie 2</li>");
+					this.$el.append("<li>Unnamed Movie 3</li>");
+
+					return this;
+					
+				}
+				
+			});
+					
+			console.log("movieApp = new IndexView()");
+			movieApp = new IndexView();
+			console.log("movieApp");
+			console.log(movieApp);		
+			
+		</script>
+    </body>
+</html>
