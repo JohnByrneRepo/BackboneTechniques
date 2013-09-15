@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<title></title>
+	<style>
+		.people-list {
+			list-style-type: none;
+		}
+		.person-list-item {
+			height: 65px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			 <form id="addPerson" action="" class="well form-inline span8 offset2 custom-form">    
+				<div class="control-group">
+					<div class="controls">
+						<input type="text" id="personName" placeholder="Name">
+						<input type="text" id="personAge" placeholder="Age">
+						<input type="text" id="personOccupation" placeholder="Occupation">
+						<button type="submit" class="btn btn-large btn-primary">Add worker</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div> <!-- /container -->
+	
+		
+		<script id="personTemplate" type="text/template">
+			<div class="container">
+				<div class="row">
+					<button class="edit btn btn-large btn-primary span2 offset4">Edit</button>
+					<button class="delete btn btn-large btn-primary span2 offset6">Delete</button>
+					<span style="width:300px"><strong>&nbsp;&nbsp;<%= name %></strong> (<%= age %>) - <%= occupation %></span> 
+					<br>
+				</div>
+			</div> <!-- /container -->
+	
+		</script>
+		
+			
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/backbone-min.js"></script>
+	<script src="events_01.js"></script>
+</body>
+</html>
