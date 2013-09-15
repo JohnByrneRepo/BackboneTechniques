@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/underscore-min.js"></script>
+        <script src="js/backbone-min.js"></script>
+		<script type="text/template" id="item-container">
+			<li><%= name %></li>			
+		</script>
+    </head>
+    <body>
+		
+		<script>
+		
+			Movie = Backbone.Model.extend();
+			
+			movie = new Movie({
+				name: 'Prometheus'
+			});
+			
+			console.log("movie.toJSON()");
+			console.log(movie.toJSON());
+        
+			
+			Movies = Backbone.Collection.extend({
+				model: Movie,
+				url: '#'
+			});
+			
+			movies = new Movies([
+				{name: "Star Wars"},
+				{name: "Robocop"}
+			]);
+					
+			IndexView = Backbone.View.extend({
+			
+				el:	'body',
+			
+				initialize:	function() {
+					this.render();
+				},
+				
+				render: function() {
+				
+					var el = this.$el,
+						template = this.template;
+				
+					this.$el.empty();		
+					this.$el.append("<h1>Movie App Index View</h1>");
+					
+					this.listView = new ListView();
+					this.$el.append(this.listView.render().el);
+					
+					return this;
+					
+				}
+			
+			});
+			
+			ListView = Backbone.View.extend({
+			
+				tagName: 'ul',
+				
+				initialize: function() {
+					this.template = _.template($('#item-container').html());
+				},
+			
+				render: function() {
+					
+					var el = this.$el,
+						template = this.template;
+				
+					el.empty();	
+
+					el.append(this.template({name: "Blade Runner"}));					
+
+					movies.each(function(model){
+						var json = model.toJSON();
+						el.append(template(json));
+					});
+
+					return this;
+					
+				}
+				
+			});
+					
+			console.log("movieApp = new IndexView()");
+			console.log(movieApp = new IndexView());
+			console.log("movieApp");
+			console.log(movieApp);		
+			
+		</script>
+    </body>
+</html>
